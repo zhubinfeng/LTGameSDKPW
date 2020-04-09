@@ -1,0 +1,36 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sdk.ltgame.paywall">
+
+    <application>
+        <activity
+            android:name=".uikit.PayWallActionActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.paymentwall.pwunifiedsdk.core.PaymentSelectionActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateVisible|adjustResize|adjustPan" />
+
+        <activity
+            android:name="com.paymentwall.sdk.pwlocal.ui.PwLocalActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name="com.paymentwall.pwunifiedsdk.mobiamo.core.MobiamoDialogActivity" />
+
+        <receiver
+            android:name="com.paymentwall.pwunifiedsdk.mobiamo.core.MobiamoBroadcastReceiver"
+            android:exported="false"
+            android:permission="${applicationId}.mobiamo.PAYMENT_BROADCAST_PERMISSION">
+            <intent-filter>
+                <action android:name="com.paymentwall.mobiamosdk.SENT_SMS_ACTION" />
+            </intent-filter>
+
+        </receiver>
+
+    </application>
+</manifest>
